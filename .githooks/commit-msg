@@ -1,0 +1,7 @@
+#!/bin/sh
+# Strip Cursor attribution trailers injected by the IDE/CLI.
+msg_file="$1"
+tmp="$(mktemp)"
+sed -E \
+  '/^Co-authored-by:[[:space:]]*Cursor([[:space:]]*<[^>]*>)?[[:space:]]*$/d; /^Made-with:[[:space:]]*Cursor[[:space:]]*$/d; /^Made with Cursor[[:space:]]*$/d' \
+  "$msg_file" > "$tmp" && mv "$tmp" "$msg_file"

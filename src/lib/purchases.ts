@@ -1,23 +1,33 @@
-import { prisma } from "@/lib/db";
+import { canUseDatabase, prisma } from "@/lib/db";
 import { getGameById } from "@/lib/games";
 import { mediaUrl } from "@/lib/media";
 import { verifyXlmPayment } from "@/lib/stellar/verify-payment";
 
 export async function hasEntitlement(gameId: string, buyerWallet: string) {
-  const row = await prisma.purchase.findUnique({
-    where: {
-      gameId_buyerWallet: { gameId, buyerWallet },
-    },
-  });
-  return Boolean(row);
+  if (!canUseDatabase()) return false;
+  try {
+    const row = await prisma.purchase.findUnique({
+      where: {
+        gameId_buyerWallet: { gameId, buyerWallet },
+      },
+    });
+    return Boolean(row);
+  } catch {
+    return false;
+  }
 }
 
 export async function getEntitlement(gameId: string, buyerWallet: string) {
-  return prisma.purchase.findUnique({
-    where: {
-      gameId_buyerWallet: { gameId, buyerWallet },
-    },
-  });
+  if (!canUseDatabase()) return null;
+  try {
+    return await prisma.purchase.findUnique({
+      where: {
+        gameId_buyerWallet: { gameId, buyerWallet },
+      },
+    });
+  } catch {
+    return null;
+  }
 }
 
 export async function claimOrVerifyPurchase(input: {
@@ -43,14 +53,20 @@ export async function claimOrVerifyPurchase(input: {
   const isFree = game.priceXlm === "0" || Number(game.priceXlm) === 0;
 
   if (isFree) {
-    await prisma.purchase.create({
-      data: {
-        gameId: game.id,
-        buyerWallet: input.buyerWallet,
-        txHash: null,
-        amountXlm: "0",
-      },
-    });
+    if (canUseDatabase()) {
+      try {
+        await prisma.purchase.create({
+          data: {
+            gameId: game.id,
+            buyerWallet: input.buyerWallet,
+            txHash: null,
+            amountXlm: "0",
+          },
+        });
+      } catch (error) {
+        console.warn("Could not persist free claim:", error);
+      }
+    }
     return {
       ok: true as const,
       entitled: true as const,
@@ -75,14 +91,20 @@ export async function claimOrVerifyPurchase(input: {
     return { ok: false as const, reason: verified.reason };
   }
 
-  await prisma.purchase.create({
-    data: {
-      gameId: game.id,
-      buyerWallet: input.buyerWallet,
-      txHash: input.txHash,
-      amountXlm: game.priceXlm,
-    },
-  });
+  if (canUseDatabase()) {
+    try {
+      await prisma.purchase.create({
+        data: {
+          gameId: game.id,
+          buyerWallet: input.buyerWallet,
+          txHash: input.txHash,
+          amountXlm: game.priceXlm,
+        },
+      });
+    } catch (error) {
+      console.warn("Could not persist purchase:", error);
+    }
+  }
 
   return {
     ok: true as const,

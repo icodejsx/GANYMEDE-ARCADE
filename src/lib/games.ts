@@ -1,4 +1,10 @@
-import { prisma } from "@/lib/db";
+import { canUseDatabase, prisma } from "@/lib/db";
+import {
+  getDemoGameById,
+  getDemoGameBySlug,
+  listDemoGames,
+  type CatalogGame,
+} from "@/lib/demo-catalog";
 import { slugify } from "@/lib/slug";
 
 export type CreateGameInput = {
@@ -13,22 +19,43 @@ export type CreateGameInput = {
   buildFilename: string;
 };
 
-export async function listPublishedGames(genre?: string) {
-  return prisma.game.findMany({
-    where: {
-      published: true,
-      ...(genre && genre !== "All" ? { genre } : {}),
-    },
-    orderBy: { createdAt: "desc" },
-  });
+export async function listPublishedGames(genre?: string): Promise<CatalogGame[]> {
+  if (!canUseDatabase()) return listDemoGames(genre);
+
+  try {
+    return await prisma.game.findMany({
+      where: {
+        published: true,
+        ...(genre && genre !== "All" ? { genre } : {}),
+      },
+      orderBy: { createdAt: "desc" },
+    });
+  } catch (error) {
+    console.warn("Falling back to demo catalog:", error);
+    return listDemoGames(genre);
+  }
 }
 
-export async function getGameBySlug(slug: string) {
-  return prisma.game.findUnique({ where: { slug } });
+export async function getGameBySlug(slug: string): Promise<CatalogGame | null> {
+  if (!canUseDatabase()) return getDemoGameBySlug(slug);
+
+  try {
+    return await prisma.game.findUnique({ where: { slug } });
+  } catch (error) {
+    console.warn("Falling back to demo catalog:", error);
+    return getDemoGameBySlug(slug);
+  }
 }
 
-export async function getGameById(id: string) {
-  return prisma.game.findUnique({ where: { id } });
+export async function getGameById(id: string): Promise<CatalogGame | null> {
+  if (!canUseDatabase()) return getDemoGameById(id);
+
+  try {
+    return await prisma.game.findUnique({ where: { id } });
+  } catch (error) {
+    console.warn("Falling back to demo catalog:", error);
+    return getDemoGameById(id);
+  }
 }
 
 async function uniqueSlug(title: string): Promise<string> {
@@ -43,6 +70,12 @@ async function uniqueSlug(title: string): Promise<string> {
 }
 
 export async function createGame(input: CreateGameInput) {
+  if (!canUseDatabase()) {
+    throw new Error(
+      "Publishing requires a persistent database. SQLite is not supported on Vercel.",
+    );
+  }
+
   const slug = await uniqueSlug(input.title);
   return prisma.game.create({
     data: {
