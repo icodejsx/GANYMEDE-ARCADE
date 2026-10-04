@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { claimOrVerifyPurchase, getEntitlement } from "@/lib/purchases";
 import { getGameById } from "@/lib/games";
-import { ipfsUrl } from "@/lib/ipfs/pinata";
+import { mediaUrl } from "@/lib/media";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -23,7 +23,7 @@ export async function GET(request: Request) {
   }
   return NextResponse.json({
     entitled: true,
-    downloadUrl: ipfsUrl(game.buildCid),
+    downloadUrl: mediaUrl(game.buildCid),
     filename: game.buildFilename,
   });
 }

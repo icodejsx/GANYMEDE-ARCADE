@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/db";
-import { ipfsUrl } from "@/lib/ipfs/pinata";
 import { getGameById } from "@/lib/games";
+import { mediaUrl } from "@/lib/media";
 import { verifyXlmPayment } from "@/lib/stellar/verify-payment";
 
 export async function hasEntitlement(gameId: string, buyerWallet: string) {
@@ -35,7 +35,7 @@ export async function claimOrVerifyPurchase(input: {
     return {
       ok: true as const,
       entitled: true as const,
-      downloadUrl: ipfsUrl(game.buildCid),
+      downloadUrl: mediaUrl(game.buildCid),
       filename: game.buildFilename,
     };
   }
@@ -54,7 +54,7 @@ export async function claimOrVerifyPurchase(input: {
     return {
       ok: true as const,
       entitled: true as const,
-      downloadUrl: ipfsUrl(game.buildCid),
+      downloadUrl: mediaUrl(game.buildCid),
       filename: game.buildFilename,
     };
   }
@@ -87,7 +87,7 @@ export async function claimOrVerifyPurchase(input: {
   return {
     ok: true as const,
     entitled: true as const,
-    downloadUrl: ipfsUrl(game.buildCid),
+    downloadUrl: mediaUrl(game.buildCid),
     filename: game.buildFilename,
   };
 }

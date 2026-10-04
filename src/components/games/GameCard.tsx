@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ipfsUrl } from "@/lib/ipfs/pinata";
+import { mediaUrl } from "@/lib/media";
 
 type Props = {
   slug: string;
@@ -25,7 +25,7 @@ export function GameCard({
     <Link href={`/games/${slug}`} className={`game-card ${compact ? "game-card--compact" : ""}`}>
       <div
         className="game-card__cover"
-        style={{ backgroundImage: `url(${ipfsUrl(coverCid)})` }}
+        style={{ backgroundImage: `url(${mediaUrl(coverCid)})` }}
       />
       <div className="game-card__meta">
         <h3>{title}</h3>

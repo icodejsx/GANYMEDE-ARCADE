@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" fill="none">
+  <defs>
+    <radialGradient id="moon" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(680 180) rotate(90) scale(160)">
+      <stop stop-color="#dce6f2" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#dce6f2" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="960" height="540" fill="#060a12"/>
+  <circle cx="680" cy="180" r="160" fill="url(#moon)"/>
+  <path d="M0 390 C180 340 320 420 480 380 C640 340 780 400 960 360 L960 540 H0 Z" fill="#152033"/>
+  <text x="48" y="470" fill="#f0f4fa" font-family="Georgia, serif" font-size="42">Lunar Echo</text>
+  <text x="48" y="505" fill="#9eb4cc" font-family="Helvetica, Arial, sans-serif" font-size="16" letter-spacing="3">ADVENTURE · DEMO</text>
+</svg>

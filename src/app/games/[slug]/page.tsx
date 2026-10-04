@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { GamePurchasePanel } from "@/components/games/GamePurchasePanel";
 import { getGameBySlug, parseScreenshotCids } from "@/lib/games";
-import { ipfsUrl } from "@/lib/ipfs/pinata";
+import { mediaUrl } from "@/lib/media";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -18,7 +18,7 @@ export default async function GamePage({ params }: Props) {
     <main className="game-page">
       <div
         className="game-page__hero"
-        style={{ backgroundImage: `url(${ipfsUrl(game.coverCid)})` }}
+        style={{ backgroundImage: `url(${mediaUrl(game.coverCid)})` }}
       />
       <div className="game-page__body">
         <div>
@@ -29,7 +29,7 @@ export default async function GamePage({ params }: Props) {
             <div className="screenshot-row">
               {screenshots.map((cid) => (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img key={cid} src={ipfsUrl(cid)} alt="" />
+                <img key={cid} src={mediaUrl(cid)} alt="" />
               ))}
             </div>
           ) : null}
