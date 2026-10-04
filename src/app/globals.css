@@ -1,0 +1,106 @@
+:root {
+  --bg: #05080e;
+  --bg-elevated: #070b12;
+  --surface: #0a1018;
+  --surface-2: #152033;
+  --text: #f0f4fa;
+  --muted: #8fa0b5;
+  --accent: #9eb4cc;
+  --accent-strong: #dce6f2;
+  --border: rgba(158, 180, 204, 0.28);
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-ui: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ui);
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-elevated);
+}
+
+.site-header__brand {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  color: var(--accent);
+}
+
+.site-header__nav {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.site-header__nav a {
+  font-size: 0.9rem;
+  color: var(--muted);
+  transition: color 0.15s ease;
+}
+
+.site-header__nav a:hover {
+  color: var(--text);
+}
+
+.btn-connect {
+  border: 1px solid rgba(220, 230, 242, 0.45);
+  background: transparent;
+  color: var(--accent-strong);
+  padding: 0.5rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.btn-connect:hover {
+  background: rgba(220, 230, 242, 0.08);
+}
+
+.page-stub {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+.page-stub h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 2.5rem;
+  margin: 0 0 0.75rem;
+}
+
+.page-stub p {
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 0;
+}
