@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ConnectButton } from "@/components/wallet/ConnectButton";
 
 export function SiteHeader() {
   return (
@@ -9,9 +10,7 @@ export function SiteHeader() {
       <nav className="site-header__nav" aria-label="Primary">
         <Link href="/">Store</Link>
         <Link href="/publish">Publish</Link>
-        <button type="button" className="btn-connect">
-          Connect wallet
-        </button>
+        <ConnectButton />
       </nav>
     </header>
   );
