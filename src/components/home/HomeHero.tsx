@@ -15,20 +15,20 @@ export function HomeHero() {
           GANYMEDE ARCADE
         </p>
         <h1 className="home-hero__title" data-animate="hero">
-          The Stellar store
+          Indie games,
           <br />
-          for indie games.
+          paid in XLM.
         </h1>
         <p className="home-hero__support" data-animate="hero">
-          Publish a page, sell in XLM, get paid to your wallet — without the
-          banking maze.
+          List a Windows build, sell it for Stellar, unlock downloads from a
+          wallet.
         </p>
         <div className="home-hero__actions" data-animate="hero">
           <Link href="/store" className="btn-primary">
-            Enter the store
+            Browse games
           </Link>
           <Link href="/publish" className="btn-ghost">
-            Publish a game
+            Publish
           </Link>
         </div>
       </div>

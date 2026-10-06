@@ -3,33 +3,26 @@ export function HomeAbout() {
     <section className="home-section home-about" data-animate="section">
       <div className="home-section__inner home-about__grid">
         <div className="home-about__copy">
-          <p className="section-kicker">What we&apos;re building</p>
-          <h2 className="section-title">
-            A game store that settles on the blockchain.
-          </h2>
+          <p className="section-kicker">About</p>
+          <h2 className="section-title">A small store on Stellar.</h2>
           <p className="section-lead">
-            Ganymede Arcade is an MVP publishing and distribution platform on
-            Stellar — closer to itch.io than a bank portal. Developers list a
-            game with description, screenshots, and a Windows build. Players
-            browse by genre, connect Freighter, and unlock downloads with XLM
-            or a free claim.
+            Ganymede Arcade lets developers put a game online with a page,
+            screenshots, and a Windows build. Players filter by genre, connect
+            Freighter, and unlock the file with XLM, or claim it if it&apos;s
+            free.
           </p>
           <ul className="about-points">
             <li>
-              <strong>Live storefront</strong>
-              <span>
-                Browse published titles, prices, and genres in one place.
-              </span>
+              <strong>Storefront</strong>
+              <span>Published titles with genre and price in one catalog.</span>
             </li>
             <li>
-              <strong>Simple publishing</strong>
-              <span>
-                Host a page with assets on IPFS — no enterprise onboarding.
-              </span>
+              <strong>Publishing</strong>
+              <span>Upload assets to IPFS and go live from your wallet.</span>
             </li>
             <li>
-              <strong>Wallet-native payouts</strong>
-              <span>Buyers pay developers directly in XLM on Stellar.</span>
+              <strong>Payouts</strong>
+              <span>Buyers send XLM straight to the developer address.</span>
             </li>
           </ul>
         </div>
@@ -45,18 +38,17 @@ export function HomeAbout() {
             <div className="about-visual__stack">
               <div className="about-visual__chip">
                 <span>STORE</span>
-                <strong>Browse · Genre · Price</strong>
+                <strong>Catalog & prices</strong>
               </div>
               <div className="about-visual__chip about-visual__chip--accent">
                 <span>STELLAR</span>
-                <strong>XLM checkout</strong>
+                <strong>XLM payments</strong>
               </div>
               <div className="about-visual__chip">
                 <span>IPFS</span>
-                <strong>Builds & screenshots</strong>
+                <strong>Builds hosted</strong>
               </div>
             </div>
-            <p className="about-visual__caption">Ganymede · distribution layer</p>
           </div>
         </aside>
       </div>

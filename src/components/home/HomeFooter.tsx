@@ -7,8 +7,8 @@ export function HomeFooter() {
         <div className="site-footer__brand-block">
           <p className="site-footer__brand">GANYMEDE ARCADE</p>
           <p className="site-footer__tagline">
-            A Stellar-native store for indie games — publish, sell in XLM, and
-            unlock downloads without traditional payout friction.
+            Indie games on Stellar. Sell in XLM, unlock the build from your
+            wallet.
           </p>
         </div>
 
@@ -20,14 +20,14 @@ export function HomeFooter() {
             <Link href="/publish">Publish</Link>
           </div>
           <div className="site-footer__col">
-            <h3>Platform</h3>
+            <h3>Stack</h3>
             <span>Stellar + Freighter</span>
-            <span>IPFS asset hosting</span>
-            <span>Testnet-ready MVP</span>
+            <span>IPFS hosting</span>
+            <span>Testnet ready</span>
           </div>
           <div className="site-footer__col">
             <h3>Developers</h3>
-            <Link href="/publish">Create a game page</Link>
+            <Link href="/publish">Create a page</Link>
             <span>Windows builds</span>
             <span>Direct XLM payouts</span>
           </div>
@@ -35,8 +35,8 @@ export function HomeFooter() {
       </div>
 
       <div className="site-footer__bottom">
-        <p>© {new Date().getFullYear()} Ganymede Arcade. MVP prototype.</p>
-        <p>Built on Stellar · Not affiliated with itch.io or Steam.</p>
+        <p>© {new Date().getFullYear()} Ganymede Arcade</p>
+        <p>Built on Stellar</p>
       </div>
     </footer>
   );

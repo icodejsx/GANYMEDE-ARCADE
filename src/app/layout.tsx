@@ -19,7 +19,7 @@ const ui = Outfit({
 export const metadata: Metadata = {
   title: "Ganymede Arcade",
   description:
-    "Stellar-native game store — publish indie games, pay with XLM, unlock downloads.",
+    "Indie game store on Stellar. Publish Windows builds, sell in XLM, unlock downloads.",
 };
 
 export default function RootLayout({

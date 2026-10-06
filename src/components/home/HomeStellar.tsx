@@ -5,41 +5,37 @@ export function HomeStellar() {
     <section className="home-section home-stellar" data-animate="section">
       <div className="home-section__inner home-stellar__inner">
         <div className="home-stellar__copy">
-          <p className="section-kicker">Why Stellar</p>
-          <h2 className="section-title">
-            Less friction between a sale and a developer&apos;s wallet.
-          </h2>
+          <p className="section-kicker">Stellar</p>
+          <h2 className="section-title">Payments land in the developer wallet.</h2>
           <p className="section-lead">
-            Traditional stores bury payouts in banking and tax procedures —
-            especially hard outside the US. On Ganymede Arcade, payment is
-            native XLM: the buyer signs in Freighter, the developer receives
-            funds on Stellar. Free games unlock after wallet connect. Paid
-            games verify on Horizon before download.
+            Checkout uses Freighter. Paid titles are checked on Horizon before
+            the download unlocks. Free titles unlock after connect. Testnet by
+            default; mainnet when you set it.
           </p>
           <div className="home-stellar__actions">
             <Link href="/store" className="btn-primary">
-              See the store
+              Open store
             </Link>
-            <Link href="/publish" className="btn-text">
-              START PUBLISHING →
+            <Link href="/publish" className="btn-ghost">
+              Publish a game
             </Link>
           </div>
         </div>
-        <aside className="home-stellar__panel" aria-label="Platform pillars">
+        <aside className="home-stellar__panel" aria-label="Stack">
           <div className="pillar" data-animate="pillar">
             <span>Network</span>
-            <strong>Stellar testnet ready</strong>
-            <p>Mainnet via environment when you ship for real.</p>
+            <strong>Stellar</strong>
+            <p>Testnet now. Mainnet via env when you ship.</p>
           </div>
           <div className="pillar" data-animate="pillar">
-            <span>Assets</span>
-            <strong>IPFS builds & art</strong>
-            <p>Screenshots and Windows builds pinned for download.</p>
+            <span>Files</span>
+            <strong>IPFS</strong>
+            <p>Screenshots and Windows builds stay pinned.</p>
           </div>
           <div className="pillar" data-animate="pillar">
-            <span>Access</span>
-            <strong>Freighter wallet</strong>
-            <p>Connect once to publish, buy, claim, and unlock.</p>
+            <span>Wallet</span>
+            <strong>Freighter</strong>
+            <p>One connect to publish, buy, claim, and unlock.</p>
           </div>
         </aside>
       </div>

@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" fill="none">
-  <rect width="960" height="540" fill="#081018"/>
-  <path d="M60 270 Q180 120 300 270 T540 270 T780 270 T980 270" stroke="#9eb4cc" stroke-width="2.5" fill="none" stroke-opacity="0.7"/>
-  <path d="M60 310 Q180 200 300 310 T540 310 T780 310 T980 310" stroke="#dce6f2" stroke-width="1.5" fill="none" stroke-opacity="0.35"/>
-  <text x="48" y="470" fill="#f0f4fa" font-family="Georgia, serif" font-size="42">Signal Fold</text>
-  <text x="48" y="505" fill="#9eb4cc" font-family="Helvetica, Arial, sans-serif" font-size="16" letter-spacing="3">OTHER · 1 XLM</text>
-</svg>

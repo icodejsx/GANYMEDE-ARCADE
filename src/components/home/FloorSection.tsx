@@ -27,17 +27,16 @@ export function FloorSection({ games, activeGenre = "All" }: Props) {
       <div className="home-section__inner">
         <div className="floor__intro">
           <div>
-            <p className="section-kicker">On the floor</p>
-            <h2 className="section-title">Live games</h2>
+            <p className="section-kicker">Games</p>
+            <h2 className="section-title">In the catalog</h2>
             <p className="section-lead section-lead--narrow">
-              A preview of titles on Ganymede. Open the full store for the complete
-              catalog.
+              A few titles from the store. See everything on the catalog page.
             </p>
             <Link href="/store" className="btn-text floor__store-link">
-              OPEN FULL STORE →
+              Full store
             </Link>
           </div>
-          <div className="floor__filters">
+          <div className="floor__filters" role="navigation" aria-label="Genres">
             {GENRES.map((genre) => {
               const href =
                 genre === "All"
@@ -59,13 +58,12 @@ export function FloorSection({ games, activeGenre = "All" }: Props) {
 
         {games.length === 0 ? (
           <div className="empty-state empty-state--rich">
-            <p className="empty-state__title">The floor is open.</p>
+            <p className="empty-state__title">No games listed yet</p>
             <p className="empty-state__body">
-              No titles listed yet. Be the first developer to publish a Windows
-              build and go live on Stellar.
+              Publish a Windows build to put the first title on the store.
             </p>
             <Link href="/publish" className="btn-primary">
-              Publish the first title
+              Publish
             </Link>
           </div>
         ) : (
@@ -80,13 +78,13 @@ export function FloorSection({ games, activeGenre = "All" }: Props) {
                     }}
                   />
                   <div className="featured-tile__copy">
-                    <span>FEATURED</span>
+                    <span>Featured</span>
                     <h3>{featured.title}</h3>
                     <p>
                       {featured.genre} ·{" "}
                       {featured.priceXlm === "0" ||
                       Number(featured.priceXlm) === 0
-                        ? "FREE"
+                        ? "Free"
                         : `${featured.priceXlm} XLM`}
                     </p>
                   </div>
