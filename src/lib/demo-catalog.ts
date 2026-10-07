@@ -25,6 +25,21 @@ const DEMOS: Omit<
   "id" | "developerWallet" | "published" | "createdAt" | "updatedAt"
 >[] = [
   {
+    slug: "bomber-naut-67",
+    title: "Bomber Naut 67",
+    description:
+      "Blast islands, clear levels, and push to the next map. Low-poly action with bomb-naut chaos.",
+    genre: "Action",
+    priceXlm: "0",
+    coverCid: "/demo/bomber-naut-67.jpg",
+    screenshotCids: JSON.stringify([
+      "/demo/bomber-naut-67-shot.jpg",
+      "/demo/bomber-naut-67.jpg",
+    ]),
+    buildCid: "/demo/bomber-naut-67.jpg",
+    buildFilename: "BomberNaut67-demo.zip",
+  },
+  {
     slug: "night-drift",
     title: "Night Drift",
     description:
